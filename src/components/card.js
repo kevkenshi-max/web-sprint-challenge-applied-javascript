@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 const Card = (article) => {
   // TASK 5
   // ---------------------
@@ -17,6 +19,27 @@ const Card = (article) => {
   //   </div>
   // </div>
   //
+  const card = document.createElement('div');
+  card.classList.add('card');
+  const headLine = document.createElement('div');
+  headLine.classList.add('headline');
+  headLine.textContent = article.headline;
+  const author = document.createElement('div');
+  author.classList.add('author');
+  const imageDiv = document.createElement('div');
+  imageDiv.classList.add('img-container');
+  const imageTag = document.createElement('img');
+  imageTag.src = article.authorPhoto;
+  const authorName = document.createElement('span');
+  authorName.textContent = `By ${article.authorName}`;
+
+  card.appendChild(headLine);
+  card.appendChild(author);
+  author.appendChild(imageDiv);
+  author.appendChild(authorName);
+  imageDiv.appendChild(imageTag);
+
+  return card;
 }
 
 const cardAppender = (selector) => {
@@ -28,6 +51,46 @@ const cardAppender = (selector) => {
   // Create a card from each and every article object in the response, using the Card component.
   // Append each card to the element in the DOM that matches the selector passed to the function.
   //
+  const parent = document.querySelector(selector);
+
+  axios.get(`http://localhost:5000/api/articles`)
+    .then(resp => {
+      console.log(resp.data.articles);
+      const articles = resp.data.articles;
+      const bootstrap = articles.bootstrap;
+      const javascript = articles.javascript;
+      const jquery = articles.jquery;
+      const node = articles.node;
+      const technology = articles.technology;
+
+      for (let i = 0; i < bootstrap.length; i++) {
+        const card = Card(bootstrap[i]);
+        parent.append(card);
+      }
+
+      for (let i =0; i < javascript.length; i++) {
+        const card = Card(javascript[i]);
+        parent.append(card);
+      }
+
+      for (let i =0; i < jquery.length; i++) {
+        const card = Card(jquery[i]);
+        parent.append(card);
+      }
+
+      for (let i =0; i < node.length; i++) {
+        const card = Card(node[i]);
+        parent.append(card);
+      }
+
+      for (let i =0; i < technology.length; i++) {
+        const card = Card(technology[i]);
+        parent.append(card);
+      }
+    })
+    .catch(error => {
+      console.error(error);
+    })
 }
 
 export { Card, cardAppender }

@@ -11,29 +11,36 @@ const Header = (title, date, temp) => {
   //    <span class="temp">{ temp }</span>
   //  </div>
   //
-
+ 
   const header = document.createElement('div');
   header.classList.add('header');
 
-  const date = docuemnt.createElement('span');
-  date.classList.add('date');
-  date.textcontent = date;
+  const dateSpan = document.createElement('span');
+  dateSpan.classList.add('date');
+  dateSpan.textContent = date;
 
-  const h1 = document.createElement('h1');
-  h1.textcontent = title;
+  const hOne = document.createElement('h1');
+  hOne.textContent = title;
 
-  const temp = document.createElement('span');
-  temp.classList.add('temp');
-  temp.textcontent = temp;
+  const tempSpan = document.createElement('span');
+  tempSpan.classList.add('temp');
+  tempSpan.textContent = temp;
 
-  header.appendChild(date);
-  header.appendChile(h1);
-  header.appendChild(temp);
+  header.appendChild(dateSpan);
+  header.appendChild(hOne);
+  header.appendChild(tempSpan);
 
   return header;
 }
 
 const headerAppender = (selector) => {
+  const parent = document.querySelector(selector);
+  
+  parent.appendChild(Header('Lambda Times', 'January 6, 2021', '26'));
+
+
+
+
   // TASK 2
   // ---------------------
   // Implement this function taking a css selector as its only argument.
