@@ -17,14 +17,20 @@ const Header = (title, date, temp) => {
 
   const date = docuemnt.createElement('span');
   date.classList.add('date');
-  date.textcontent = date.date;
+  date.textcontent = date;
 
   const h1 = document.createElement('h1');
-  h1.textcontent = title.title;
+  h1.textcontent = title;
 
   const temp = document.createElement('span');
   temp.classList.add('temp');
-  temp.textcontent = temp.temp;
+  temp.textcontent = temp;
+
+  header.appendChild(date);
+  header.appendChile(h1);
+  header.appendChild(temp);
+
+  return header;
 }
 
 const headerAppender = (selector) => {
