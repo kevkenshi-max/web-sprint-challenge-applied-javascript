@@ -60,7 +60,14 @@ In meeting the minimum viable product (MVP) specifications listed below, your pr
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
 1. What is the DOM?
+-  The Document Object Model (DOM) is the data representation of the objects that comprise the structure and content of a document on the web.
+   The Document Object Model (DOM) is a programming interface for web documents. It represents the page so that programs can change the document structure, style, and content. The DOM represents the document as nodes and objects; that way, programming languages can interact with the page.
 2. What is an event?
+-  An event is an action or occurrence recognized by software, often originating asynchronously from the external environment, that may be handled by the software.
+   Computer events can be generated or triggered by the system, by the user, or in other ways.
 3. What is an event listener?
+-  An event listener is a procedure or function in a computer program that waits for an event to occur.
 4. Why would we convert a NodeList into an Array?
+-  Because NodeLists are actually not a JavaScript API, but a browser API.
 5. What is a component?
+-  Components are independent and reusable bits of code. They serve the same purpose as JavaScript functions, but work in isolation and return HTML.
